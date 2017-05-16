@@ -1,0 +1,120 @@
+<view wx:if="{{!needshowInfo}}" id="info">
+<loading hidden="{{loadingHidden}}">
+    提交中...
+  </loading>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>姓 名:</view>
+      <view class="form-right">
+        <input name="userName" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>联系电话:</view>
+      <view class="form-right">
+        <input name="userPhoneNumber" bindinput="bindKeyInput" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>手机验证:</view>
+      <view class="form-right other-right">
+        <input name="vertifyCode" type="text" class='phone-code' />
+        <view bindtap="getCode" wx:if="{{isGetCodeEnable}}" class="get-code">获取验证码</view>
+        <view wx:else class="get-code-disable">{{timeleft}}秒后重新获取</view>
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>所在区域:</view>
+      <view class="form-right other-right">
+        <input name="province" type="text" class="province" />省
+        <input name="city" type="text" class="area" />市</view>
+    </view>
+
+    <!--分割线开始-->
+    <view style="width:100%;height:15rpx;background:#f1f1f1;"></view>
+
+    <!--分割线结束-->
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left" style="margin-left:5rpx;">客户服务码:</view>
+      <view class="form-right">
+        <input name="serviceCode" type="text" />
+      </view>
+    </view>
+    <view class="" style="border-top:1rpx solid #e8e8e8;width:676rp;margin:auto;">
+      <view class="form-left" style="margin-top:10rpx;width:100%;">
+        <text>*</text>你想了解哪些展位信息(可多选):</view>
+      <view class="form-down">
+        <checkbox-group name="checkBoxGroup" bindchange="checkboxChange" class="check-box">
+          <block wx:for="{{feed}}">
+          <label class="checkbox">
+            <checkbox value="{{item.title}}" checked="{{item.isChecked}}" size="20" />{{item.title}}
+          </label>
+          </block>
+        </checkbox-group>
+      </view>
+      <button formType="submit" class="submit">提交信息</button>
+      <view class="tips">完善资料后可查看更多详细信息</view>
+    </view>
+  </form>
+
+  <!--info end-->
+</view>
+
+<view wx:else id="info">
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text></text>姓 名:</view>
+      <view class="form-right">
+        <!--<input type="text"/>-->
+        {{filledName}}
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text></text>联系电话:</view>
+      <view class="form-right">
+        <!--<input type="text" />-->
+        {{filledPhone}}
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text></text>所在区域:</view>
+      <view class="form-right other-right">
+        <!--<input type="text" class="province" />省
+        <input type="text" class="area" />市-->
+        {{filledProvince}}省 {{filledCity}}市
+        </view>
+    </view>
+
+    <!--分割线开始-->
+    <view style="width:100%;height:15rpx;background:#f1f1f1;"></view>
+
+    <!--分割线结束-->
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left" style="margin-left:5rpx;">客户服务码:</view>
+      <view class="form-right">
+        <!--<input type="text" />-->
+        {{filledServiceCode}}
+      </view>
+    </view>
+    <view class="" style="border-top:1rpx solid #e8e8e8;width:676rp;margin:auto;">
+      <view class="form-left" style="margin-top:10rpx;width:100%;">
+        <text></text>你想了解的展位信息:</view>
+      <view class="form-down">
+        <checkbox-group bindchange="checkboxChange" class="check-box">
+          <block wx:for="{{filledWantToKnow}}">
+          <label class="checkbox">
+            {{item}}
+          </label>
+          </block>
+        </checkbox-group>
+      </view>
+    </view>
+  </form>
+</view>

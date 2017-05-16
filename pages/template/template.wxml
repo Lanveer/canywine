@@ -1,0 +1,113 @@
+<!--列表页面的template开始-->
+<!--<view>eew</view>-->
+<template name="list">
+    <view class="list">
+        <view class="list-title">
+            <text>{{item.company}}</text>
+            <view>{{item.hotel}}</view>
+        </view>
+    <view class="icon">
+        <image src="{{item.imageUrl}}"></image>
+    </view>
+        <view class="right-info">
+        <view>展位号: <text>{{item.exhibition_code}}</text></view> 
+            <view>联系人: <text>{{item.contact}}</text></view> 
+            <view>联系方式: <text>{{item.tel}}</text></view> 
+            <view class="tags">
+            <block wx:for="{{item.tag}}">
+                <view>{{item.title}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+</template>
+
+<!--列表页面的template结束-->
+
+
+
+<!--弹窗的template开始-->
+<template name="show-info">
+    <view id="container">
+    <view class="mask"></view>
+    <view id="info">
+        <view class="info-header">
+            <text>完善个人信息获取阅读权限</text>
+        </view>
+
+        <form bindsubmit="formSubmit" bindreset="formReset">
+             <view class="form-item" style="margin-top:20rpx;">
+                 <view class="form-left"><text>*</text>姓   名:</view>
+                 <view class="form-right"><input type="text"/></view>
+             </view>
+
+              <view class="form-item" style="margin-top:20rpx;">
+                 <view class="form-left"><text>*</text>联系电话:</view>
+                 <view class="form-right"><input type="text"/></view>
+             </view>
+
+                 <view class="form-item" style="margin-top:20rpx;">
+                 <view class="form-left"><text>*</text>手机验证:</view>
+                 <view class="form-right other-right"><input type="text" class='phone-code'/> <view class="get-code">获取验证码</view></view>
+                </view>
+
+                <view class="form-item" style="margin-top:20rpx;">
+                 <view class="form-left"><text>*</text>所在区域:</view>
+                 <view class="form-right other-right"><input type="text" class="province"/>省  <input type="text" class="area"/>市</view>
+                </view>
+
+                 <view class="form-item" style="margin-top:20rpx;">
+                 <view class="form-left"><text>*</text>客户服务码:</view>
+                 <view class="form-right"><input type="text"/></view>
+                 </view>
+
+                 <view class="" style="border-top:1rpx solid #e8e8e8;width:676rp;margin:auto;">
+                    <view class="form-left" style="margin-top:10rpx;width:100%;"><text>*</text>你想了解哪些展位信息(可多选):</view>
+ 
+                    <view class="form-down"> 
+                       <checkbox-group bindchange="checkboxChange" class="check-box">
+                            <label class="checkbox">
+                                <checkbox value="" checked=""  size="20"/>白酒
+                            </label>
+
+                                 <label class="checkbox">
+                                <checkbox value="" checked=""/>白酒
+                            </label>
+
+                                 <label class="checkbox">
+                                <checkbox value="" checked=""/>白酒
+                            </label>
+
+                                 <label class="checkbox">
+                                <checkbox value="" checked=""/>白酒
+                            </label>
+                             <label class="checkbox">
+                                <checkbox value="" checked=""  size="20"/>白酒
+                            </label>
+
+                                 <label class="checkbox">
+                                <checkbox value="" checked=""/>白酒
+                            </label>
+
+                                 <label class="checkbox">
+                                <checkbox value="" checked=""/>白酒
+                            </label>
+
+                                 <label class="checkbox">
+                                <checkbox value="" checked=""/>白酒
+                            </label>
+                             <label class="checkbox">
+                                <checkbox value="" checked=""  size="20"/>白酒
+                            </label>
+                            </checkbox-group>
+                    </view>
+                    <button class="submit">提交信息</button>
+                    <view class="tips">完善资料后可查看更多详细信息</view>
+                 </view>               
+        </form>
+    </view>
+    </view>
+
+</template>
+
+<!--弹窗的template结束-->

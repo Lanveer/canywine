@@ -1,0 +1,170 @@
+
+<!--pages/News/News/news.wxml-->
+<view wx:if="{{!needshowInfo}}" class="container">
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+
+  <!--会展热点 | 会展攻略-->
+  <view class="topTapBar">
+    <block wx:for="{{topTabBarData}}">
+      <view class="topBarItem" bindtap="topBarItemClicked" data-index="{{index}}">
+        <text class="topBarTitle {{item.didSelected ? 'topBarTitleSelected' : ''}}">{{item.title}}</text>
+        <view class="topBarItemLine {{item.didSelected ? 'topBarItemLineSelected' : ''}}"></view>
+      </view>
+    </block>
+  </view>
+  <scroll-view class="listScrollView" scroll-y="true" bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper">
+
+    <!--轮播图-->
+    <swiper class="swiperView" indicator-dots="true" autoplay="true" interval="3000" duration="600" indicator-color="rgba(255, 255, 0, .3)">
+      <block wx:for="{{newsData}}" wx:if="{{index == 0}}">
+        <block wx:for="{{item.contents}}">
+          <swiper-item>
+            <image bindtap="topImageClicked" data-item-id="{{item.itemId}}" class="swiperItemImage" src="{{item.imageURL}}"></image>
+          </swiper-item>
+        </block>
+      </block>
+    </swiper>
+
+    <!--资讯列表-->
+    <block wx:for="{{newsData}}" wx:if="{{index > 0}}">
+
+      <!--置顶资讯-->
+      <view wx:if="{{item.isTopNews}}" class="topNewsView" bindtap="topNewsClicked" data-item-id="{{item.itemId}}">
+        <view class="topNewsContainer">
+          <image class="topNewsImage" src="{{item.imageURL}}"></image>
+          <view class="topNewsTitleView">
+            <text class="topNewsTitleFont">{{item.title}}</text>
+            <view class="topNewsIconView">
+              <text class="topNewsIconFont">置顶</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--一般资讯-->
+      <view wx:if="{{item.isNormalNews && !item.isTopNews}}" class="normalNewsView" bindtap="normalNewsClicked" data-item-id="{{item.itemId}}">
+        <view class="normalNewsContainer">
+          <image class="normalNewsImage" src="{{item.imageURL}}"></image>
+          <view class="normalNewsTitleView">
+            <text class="normalNewsTitleFont">{{item.title}}</text>
+            <view class="normalNewsIconView">
+              <text class="normalNewsIconFont">{{item.bottomTitle}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--图集-->
+      <view wx:if="{{item.isImagesNews && !item.isTopNews}}" class="imagesNewsView" bindtap="mutipleNewsClicked" data-item-id="{{item.itemId}}">
+        <view class="imagesNewsContainer">
+          <view class="imagesNewsTitleView">
+            <text class="imagesNewsTitleFont">{{item.title}}</text>
+          </view>
+          <view class="imagesNewsImageView">
+            <image class="imagesNewsImage" src="{{item.imageURL1}}"></image>
+            <image class="imagesNewsImage" src="{{item.imageURL2}}"></image>
+            <image class="imagesNewsImage" src="{{item.imageURL3}}"></image>
+          </view>
+          <view class="imagesNewsIconView">
+            <text class="imagesNewsIconFont">{{item.bottomTitle}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!--视频资讯-->
+      <view wx:if="{{item.isVideo && !item.isTopNews}}" class="videoNewsView" bindtap="videoNewsClicked" data-item-id="{{item.itemId}}">
+        <view class="videoNewsContainer">
+          <image class="videoNewsImage" src="{{item.imageURL}}"></image>
+          <text class="videoNewsTitleFont">{{item.title}}</text>
+          <view class="videoNewsIconView">
+            <text class="videoNewsIconFont">{{item.time}}</text>
+          </view>
+        </view>
+        <view class="videoSeparatorLine">
+        </view>
+      </view>
+
+      <!--大图资讯-->
+      <view wx:if="{{item.isBigImagesNews && !item.isTopNews}}" class="bigImageNewsView" bindtap="bigNewsClicked" data-item-id="{{item.itemId}}">
+        <view class="bigImageNewsContainer">
+          <view class="bigImageNewsTitleView">
+            <text class="bigImageNewsTitleFont">{{item.title}}</text>
+          </view>
+          <image class="bigImageNewsImage" src="{{item.imageURL}}"></image>
+          <view class="bigImageNewsIconView">
+            <text class="bigImageNewsIconFont">{{item.bottomTitle}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!--container end-->
+</view>
+
+<!--info -->
+<view wx:else id="info">
+  <loading hidden="{{loadingHidden}}">
+    提交中...
+</loading>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>姓 名:</view>
+      <view class="form-right">
+        <input name="userName" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>联系电话:</view>
+      <view class="form-right">
+        <input name="userPhoneNumber" bindinput="bindKeyInput" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>手机验证:</view>
+      <view class="form-right other-right">
+        <input name="vertifyCode" type="text" class='phone-code' />
+        <view bindtap="getCode" wx:if="{{isGetCodeEnable}}" class="get-code">获取验证码</view>
+        <view wx:else class="get-code-disable">{{timeleft}}秒后重新获取</view>
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>所在区域:</view>
+      <view class="form-right other-right">
+        <input name="province" type="text" class="province" />省
+        <input name="city" type="text" class="area" />市</view>
+    </view>
+
+    <!--分割线开始-->
+    <view style="width:100%;height:15rpx;background:#f1f1f1;"></view>
+
+    <!--分割线结束-->
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left" style="margin-left:5rpx;">客户服务码:</view>
+      <view class="form-right">
+        <input name="serviceCode" type="text" />
+      </view>
+    </view>
+    <view class="" style="border-top:1rpx solid #e8e8e8;width:676rp;margin:auto;">
+      <view class="form-left" style="margin-top:10rpx;width:100%;">
+        <text>*</text>你想了解哪些展位信息(可多选):</view>
+      <view class="form-down">
+        <checkbox-group name="checkBoxGroup" bindchange="checkboxChange" class="check-box">
+          <block wx:for="{{feed}}">
+          <label class="checkbox">
+            <checkbox value="{{item.title}}" checked="{{item.isChecked}}" size="20" />{{item.title}}
+          </label>
+          </block>
+        </checkbox-group>
+      </view>
+      <button formType="submit" class="submit">提交信息</button>
+      <view class="tips">完善资料后可查看更多详细信息</view>
+    </view>
+  </form>
+</view>

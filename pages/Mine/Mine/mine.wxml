@@ -1,0 +1,65 @@
+
+<!--pages/Mine/Mine/mine.wxml-->
+
+<!--header begin-->
+<view class="header">
+  <view class="user-icon">
+    <image src="{{userHeader}}"></image>
+  </view>
+  <text class="user-name">{{userNick}}</text>
+</view>
+
+<!--header over-->
+
+<!--mine list begin-->
+<view class="mine">
+  <navigator url="../info/info">
+    <view class="list">
+      <image src="../../../images/my-a.png" class="icon"></image>
+      <view class="item">
+        <text>我的信息</text>
+        <image src="../../../images/my-arrow.png" class="item-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+  <navigator url="../msg/msg">
+    <view class="list">
+      <image src="../../../images/my-b.png" class="icon"></image>
+      <view class="item">
+        <text>资讯历史</text>
+        <image src="../../../images/my-arrow.png" class="item-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+  <navigator url="../feedback/feedback">
+    <view class="list">
+      <image src="../../../images/my-c.png" class="icon"></image>
+      <view class="item" style="border-bottom:none;">
+        <text>投诉反馈</text>
+        <image src="../../../images/my-arrow.png" class="item-arrow"></image>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<!--mine list over-->
+
+<!--footer info begin-->
+<view class="footer-info">
+  <view class="erweima">
+    <image src="../../../images/erweima.png"></image>
+  </view>
+  <view class="info">
+    <text>扫描二维码</text>
+    <text>下载酒商app</text>
+    <text>了解更多行业动态</text>
+  </view>
+  <view class="footer-bar">
+    <text>客服咨询电话：4000-028-999</text>
+  </view>
+  <view wx:if="{{showInfo}}" class="infoView">
+    <text>成都子奇科技有限公司提供技术支持</text>
+  </view>
+</view>
+
+<!--footer info over-->

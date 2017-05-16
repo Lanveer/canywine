@@ -1,0 +1,12 @@
+/* pages/list/list.wxss */
+@import "../template/template.wxss";
+
+.listScrollView {
+  width: 750rpx;
+  height: 1100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*margin-top: 66rpx;
+  z-index: 1;*/
+}

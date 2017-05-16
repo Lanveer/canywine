@@ -1,0 +1,48 @@
+<view class="allsearch-bar">
+  <view class="allinput-wrapper" wx:if="{{search_hide}}" bindtap="input">
+    <image src="../../images/search@2x.png"></image>
+    <text>请输入搜索关键字……</text>
+  </view>
+
+  <!--输入框开始-->
+  <view class="allinput-wrapper allinput" wx:if="{{input_show}}">
+    <image src="../../images/search@2x.png"></image>
+    <input bindfocus="bindKeyFocus" bindinput="bindKeyInput" type="text" class="" />
+    <image src="../../images/delete.png" class="alldelete" wx:if="{{delete_show}}" bindtap="back"></image>
+  </view>
+
+  <!--输入框结束-->
+  <text bindtap="readyToSearch">搜索</text>
+</view>
+<block wx:if="{{showSearchView}}">
+  <!--搜索历史开始-->
+  <view class="allcom-container allsearch-history">
+    <view class="alltitle">历史</view>
+    <block wx:for="{{history}}">
+      <text bindtap="{{historyClicked}}" data-keyword="{{item.history}}" class="alllist">{{item.history}}</text>
+    </block>
+  </view>
+
+  <!--搜索历史结束-->
+
+  <!--推荐开始-->
+  <view class="allcom-container allrecomment">
+    <view class="alltitle" style="margin-top:24rpx;">推荐</view>
+    <block wx:for="{{recommend}}">
+      <text bindtap="{{recommendClicked}}" data-item-id="{{item.id}}" class="alllist">{{item.name}}</text>
+    </block>
+  </view>
+
+  <!--推荐结束-->
+</block>
+<block wx:if="{{showSearchView == false}}">
+  <import src='../template/template.wxml' />
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+  <scroll-view class="listScrollView" scroll-y="true" bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper">
+    <block wx:for="{{list_data}}">
+      <template is="list" data="{{item}}" />
+    </block>
+  </scroll-view>
+</block>

@@ -1,0 +1,31 @@
+
+<!--pages/News/Details/bigImageDetail/detail.wxml-->
+<view class="container">
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+  <view class="titleView">
+    <text class="titleFont">{{title}}</text>
+  </view>
+  <view class="autherInfoView">
+    <view class="autherInfo">
+      <text class="autherFont">{{editor}}</text>
+      <text class="autherFont">{{time}}</text>
+    </view>
+    <view wx:if="{{is_Top}}" class="topIcon">
+      <text class="topIconFont">置顶</text>
+    </view>
+  </view>
+  <image class="contentImage" src="{{image1}}"></image>
+  <view class="contentView">
+    <text class="contentFont">{{content1}}</text>
+  </view>
+  <image class="contentImage" src="{{image2}}"></image>
+  <view class="contentView">
+    <text class="contentFont">{{content2}}</text>
+  </view>
+  <image class="contentImage" src="{{image3}}"></image>
+  <view class="contentView">
+    <text class="contentFont">{{content3}}</text>
+  </view>
+</view>

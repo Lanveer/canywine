@@ -1,0 +1,578 @@
+/* pages/Exhibition/Exhibition/exhibition.wxss */
+
+.container {
+  width: 750rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*搜索栏*/
+
+.searchView {
+  width: 610rpx;
+  height: 50rpx;
+  border-radius: 40rpx;
+  border-color: #e8e8e8;
+  border: 2rpx solid #e8e8e8;
+  background: #f1f1f1;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchContainer {
+  width: 260rpx;
+  height: 50rpx;
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchImage {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.searchTitle {
+  font-size: 24rpx;
+  color: #888;
+}
+
+/*顶部分类信息栏*/
+
+.headerContainerView {
+  width: 750rpx;
+  height: 275rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 10rpx;
+}
+
+/*顶部分类信息栏容器*/
+
+.headerView {
+  width: 720rpx;
+  height: 275rpx;
+  display: flex;
+  flex-direction: row;
+  /*换行*/
+  flex-wrap: wrap;
+  align-items: center;
+  margin: auto;
+}
+
+/*分类信息cell*/
+
+.cell {
+  width: 144rpx;
+  height: 130rpx;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/*分类信息图片*/
+
+.headerIconImage {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+/*分类信息title*/
+
+.headerIconText {
+  font-size: 24rpx;
+  display: block;
+  margin-top: -5rpx;
+}
+
+/*酒店 | 展馆 按钮*/
+.middleTapBar {
+  width: 750rpx;
+  height: 66rpx;
+  background: #F1F1F1;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+
+.middleBarItem {
+  width: 475rpx;
+  height: 66rpx;
+  background: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middleBarTitle {
+  font-size: 30rpx;
+  color: #666666;
+  margin: auto;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.middleBarTitleSelected {
+  font-size: 30rpx;
+  color: #E82929;
+}
+
+.middleBarItemLine {
+  background: #F1F1F1;
+  height: 5rpx;
+  width: 162rpx;
+}
+
+.middleBarItemLineSelected {
+  background: #E82929;
+  height: 5rpx;
+  width: 162rpx;
+}
+
+/*酒店滑动页 - 一个酒店*/
+.hotelBaseView {
+  height: 694rpx;
+  width: 750rpx;
+}
+
+.hotelContainerView {
+  height: 694rpx;
+  width: 750rpx;
+  position: relative;
+}
+
+.leftArrow {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  left: 10rpx;
+  bottom: 40%;
+}
+
+.rightArrow {
+  width: 48rpx;
+  height: 48rpx;
+  right: 10rpx;
+  position: absolute;
+  bottom: 40%;
+}
+
+.hotelBackView {
+  height: 694rpx;
+  width: 750rpx;
+  position: relative;
+}
+
+.hotelBackImage {
+  height: 450rpx;
+  width: 750rpx;
+  /*position: absolute;*/
+}
+
+.infoView {
+  width: 618rpx;
+  height: 580rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  position: absolute;
+  top: 90rpx;
+  left: 50%;
+  margin-left: -309rpx;
+  background: white;
+  box-shadow: 0 0 12px rgba(220, 225, 230, 0.7);
+}
+
+.infoImage {
+  width: 430rpx;
+  height: 290rpx;
+  border-radius: 10rpx;
+  margin-top: -62rpx;
+  align-items: center;
+}
+
+.hotelNameView {
+  width: 618rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.hotelCenterName {
+  width: auto;
+  height: 60rpx;
+}
+
+.hotelNameFont {
+  font-size: 34rpx;
+  color: #353535;
+  /*margin-left: 100rpx;*/
+  line-height: 60rpx;
+}
+
+.hotelDistanceFont {
+  font-size: 20rpx;
+  color: #888888;
+  margin-left: 30rpx;
+  position: absolute;
+  top: 26rpx;
+}
+
+.hotelDescriptionView {
+  width: 498rpx;
+  height: 200rpx;
+  margin: auto;
+  text-align: left;
+  margin-top: 5rpx;
+  text-overflow: ellipsis;
+  /*white-space: wrap;*/
+  overflow: hidden;
+  line-height: 90%;
+}
+
+.descriptionFont {
+  font-size: 26rpx;
+  color: #353535;
+}
+
+.loactionView {
+  width: 618rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0rpx;
+  border-radius: 20rpx;
+}
+
+.locationContainer {
+  width: auto;
+  height: 60rpx;
+  text-align: center;
+}
+
+.locationImage {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.locationFont {
+  font-size: 20rpx;
+  color: #226298;
+  margin-left: 10rpx;
+}
+
+/*酒店滑动页 - 多个酒店*/
+.moreInfoView {
+  width: 618rpx;
+  height: 580rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  position: absolute;
+  top: 90rpx;
+  left: 50%;
+  margin-left: -309rpx;
+  background: white;
+  box-shadow: 0 0 12px rgba(220, 225, 230, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moreInfoContainer {
+  width: 550rpx;
+  height: 532rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: white;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.smallHotelInfoView {
+  width: 260rpx;
+  height: 266rpx;
+  position: relative;
+}
+
+.smallHotelImageView {
+  width: 260rpx;
+  height: 180rpx;
+  position: relative;
+  border-radius: 10rpx;
+  /*margin-top: 34rpx;*/
+}
+
+.smallHotelImage {
+  width: 260rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  border-radius: 10rpx;
+}
+
+.smallHotelImageTextView {
+  width: 260rpx;
+  height: 38rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  background: rgba(0, 0, 0, 0.7)
+}
+
+.smallHotelFont {
+  font-size: 22rpx;
+  color: #FFFFFF;
+}
+
+.smallHotelLocationView {
+  width: 260rpx;
+  height: 30rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 24rpx;
+}
+
+.smallHotelLocationContainer {
+  width: auto;
+  height: 30rpx;
+  text-align: center;
+}
+
+.smallHotelLocationImage {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.smallHotelLocationFont {
+  font-size: 20rpx;
+  color: #226298;
+  margin-left: 10rpx;
+}
+
+/*展馆滑动页*/
+.exhibitionBaseView {
+  height: 694rpx;
+  width: 750rpx;
+}
+
+.exhibitionBackView {
+  height: 694rpx;
+  width: 750rpx;
+  position: relative;
+}
+
+.exhibitionBackImage {
+  height: 450rpx;
+  width: 750rpx;
+  /*position: absolute;*/
+}
+
+.exhibitionInfoView {
+  width: 618rpx;
+  height: 580rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  position: absolute;
+  top: 90rpx;
+  left: 50%;
+  margin-left: -309rpx;
+  background: white;
+  box-shadow: 0 0 12px rgba(220, 225, 230, 0.7);
+}
+
+.exhibitionInfoImage {
+  width: 430rpx;
+  height: 290rpx;
+  border-radius: 10rpx;
+  margin-top: -62rpx;
+  align-items: center;
+}
+
+.exhibitionNameView {
+  width: 618rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.exhibitionCenterName {
+  width: auto;
+  height: 60rpx;
+}
+
+.exhibitionNameFont {
+  font-size: 34rpx;
+  color: #353535;
+  /*margin-left: 100rpx;*/
+  line-height: 60rpx;
+}
+
+.exhibitionDistanceFont {
+  font-size: 20rpx;
+  color: #888888;
+  margin-left: 30rpx;
+  position: absolute;
+  top: 26rpx;
+}
+
+.exhibitionDescriptionView {
+  width: 498rpx;
+  height: auto;
+  margin: auto;
+  text-align: left;
+  margin-top: 20rpx;
+}
+
+.exhibitionDescriptionFont {
+  font-size: 26rpx;
+  color: #353535;
+}
+
+.exhibitionLoactionView {
+  width: 618rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0rpx;
+  border-radius: 20rpx;
+}
+
+.exhibitionLocationContainer {
+  width: auto;
+  height: 60rpx;
+  text-align: center;
+}
+
+.exhibitionLocationImage {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.exhibitionLocationFont {
+  font-size: 20rpx;
+  color: #226298;
+  margin-left: 10rpx;
+}
+
+/*info */
+
+/*page{
+    background: #f1f1f1;
+}*/
+#info{
+    width: 100%;height: 1162rpx;
+    background: #fff;
+    position: absolute;top: 0rpx;
+    z-index: 995;
+}
+
+.info-header{
+    width: 100%;height: 66rpx;background:#e23738;
+    text-align: center;line-height: 66rpx;
+}
+
+.info-header text{
+    font-size: 30rpx;color: #fff;
+}
+
+.form-item{
+    width:710rpx;height:auto;
+    margin: 0 auto 40rpx;
+   overflow: hidden; 
+    display: flex;flex-direction: row;
+    align-items: center;vertical-align: middle;
+    justify-content: space-between;
+
+}
+.form-left{font-size: 28rpx;color: #282828;margin-left: 20rpx;}
+.form-left text{color:#e23738;}
+.form-right{
+    width: 530rpx;float: right;margin-right:22rpx;
+}
+.form-right input{
+    width: 100%;height: 68rpx;
+    border: 1rpx solid #dedede;
+}
+
+
+.other-right{
+    display: flex;flex-direction: row;align-items: center;vertical-align: middle;justify-content: space-between;
+    font-size: 28rpx;color: #282828;
+}
+.phone-code{
+    width: 300rpx!important;
+}
+.get-code{
+    width: 178rpx;font-size: 22rpx;color: #fff;height : 68rpx;background: #e23738;
+    text-align: center;line-height: 68rpx;
+}
+
+.get-code-disable {
+  width: 178rpx;
+  font-size: 22rpx;
+  color: #fff;
+  height: 68rpx;
+  background: darkgray;
+  text-align: center;
+  line-height: 68rpx;
+}
+
+.province{
+    width: 182rpx!important;height: 68rpx;
+}
+
+.area{
+    width: 182rpx!important;height: 68rpx;
+}
+
+.form-down{
+    width:676rpx;height:250rpx;
+    background:#fff; 
+    margin: 20rpx auto 0; 
+}
+/*.check-box{*/
+    /*display: flex;flex-direction: row;justify-content: space-around;align-items: center;vertical-align: middle;*/
+/*}*/
+.checkbox{
+    width: 33%;height: auto;
+    margin: 10rpx 0 10rpx 0;
+    text-align: left;font-size:28rpx; 
+    overflow: hidden;display: inline-block;
+}
+
+.submit{
+    width:676rpx;height: 74rpx;
+    background: #e23738;
+    color: #fff;border: none;outline: none;
+    font-size: 28rpx;border-radius: 0;
+    margin-top: 20rpx;
+}
+
+.tips{
+    font-size: 22rpx;color:#666565;
+    margin-top: 10rpx;text-align: center;
+}

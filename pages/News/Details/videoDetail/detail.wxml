@@ -1,0 +1,28 @@
+
+<!--pages/News/Details/videoDetail/detail.wxml-->
+<view class="container">
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+  <view class="titleView">
+    <text class="titleFont">{{title}}</text>
+  </view>
+  <view class="autherInfoView">
+    <view class="autherInfo">
+      <text class="autherFont">{{editor}}</text>
+      <text class="autherFont">{{time}}</text>
+    </view>
+  </view>
+  <video class="contentImage" src="{{image1}}"></video>
+  <view class="contentView">
+    <text class="contentFont">{{content1}}</text>
+  </view>
+  <video class="contentImage" src="{{image2}}"></video>
+  <view class="contentView">
+    <text class="contentFont">{{content2}}</text>
+  </view>
+  <video class="contentImage" src="{{image3}}"></video>
+  <view class="contentView">
+    <text class="contentFont">{{content3}}</text>
+  </view>
+</view>

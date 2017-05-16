@@ -1,0 +1,81 @@
+/* pages/News/Details/singleImageDetail/detail.wxss */
+.container {
+  width: 750rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleView {
+    width: 750rpx;
+    height: 86rpx;
+    text-align: center;
+}
+
+.titleFont {
+    font-size: 36rpx;
+    color: #353535;
+    line-height: 86rpx;
+}
+
+.autherInfoView {
+    width: 710rpx;
+    height: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.autherInfo {
+    width: auto;
+    height: 80rpx;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.autherFont {
+    font-size: 24rpx;
+    color: #888888;
+    line-height: 80rpx;
+}
+
+.topIcon {
+  width: 100rpx;
+  height: 40rpx;
+  border-radius: 5rpx;
+  border-color: #C31421;
+  border: 1rpx solid #C31421;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topIconFont {
+  font-size: 24rpx;
+  color: #C31421;
+  line-height: 40rpx;
+}
+
+.imageContainer {
+    width: 710rpx;
+     height: 387rpx;
+}
+
+.contentImage {
+    width: 100%;
+   height: 100%
+}
+
+.contentView {
+    width: 710rpx;
+    height: auto;
+    margin-bottom: 10rpx;
+}
+
+.contentFont {
+    font-size: 28rpx;
+    color: #353535;
+}

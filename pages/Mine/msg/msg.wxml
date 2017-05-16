@@ -1,0 +1,8 @@
+
+<block wx:for="{{msgs}}">
+    <view class="list" bindtap="cellClicked" data-item-id="{{item.id}}">
+    <text>{{item.name}}</text>
+    </view>
+</block>
+
+

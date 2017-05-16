@@ -1,0 +1,13 @@
+<!--pages/list/list.wxml-->
+<import src='../template/template.wxml'/>
+<loading hidden="{{loadingHidden}}">
+    加载中...
+</loading>
+
+<scroll-view class="listScrollView" scroll-y="true" bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper">
+
+<block wx:for="{{list_data}}">
+<template is="list" data="{{item}}"/>
+</block>
+
+</scroll-view>

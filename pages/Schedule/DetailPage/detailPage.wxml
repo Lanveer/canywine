@@ -1,0 +1,20 @@
+
+<!--pages/Schedule/DetailPage/detailPage.wxml-->
+<view class="container">
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+
+  <!--<block wx:for="{{contentData}}">-->
+  <view class="titleView">
+    <text class="titleFont">{{title}}</text>
+  </view>
+  <image class="contentImage" src="{{infoimg}}"></image>
+  <view class="contentView">
+    <text class="contentFont">{{introduce}}</text>
+  </view>
+
+  <!--</block>-->
+
+  <!--container end-->
+</view>

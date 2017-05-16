@@ -1,0 +1,200 @@
+
+<!--pages/Exhibition/Exhibition/exhibition.wxml-->
+<view wx:if="{{!needshowInfo}}" class="container">
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+  <!--搜索栏-->
+  <view class="searchView">
+    <view class="searchContainer" bindtap="searchBarClicked">
+      <image class="searchImage" src="../../../images/search@2x.png"></image>
+      <text class="searchTitle">请输入搜索关键词...</text>
+    </view>
+  </view>
+
+  <!--顶部分类信息-->
+  <view class="headerContainerView">
+    <view class="headerView">
+      <block wx:for="{{headerData}}">
+        <view class="cell" bindtap="headerClick" data-index="{{index}}" data-title="{{item.title}}">
+          <image class="headerIconImage" src="{{item.imageURL}}"></image>
+          <text class="headerIconText">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!--酒店 | 展馆-->
+  <view class="middleTapBar">
+    <block wx:for="{{middleTabBarData}}">
+      <view class="middleBarItem" bindtap="middleBarItemClicked" data-index="{{index}}">
+        <text class="middleBarTitle {{item.didSelected ? 'middleBarTitleSelected' : ''}}">{{item.title}}</text>
+        <view class="middleBarItemLine {{item.didSelected ? 'middleBarItemLineSelected' : ''}}"></view>
+      </view>
+    </block>
+  </view>
+
+  <!--酒店滑动页面-->
+  <view class="hotelContainerView">
+    <swiper class="hotelBaseView" current="{{currentTap}}" bindChange="bindChange" wx:if="{{currentTapIsHotel}}">
+      <block wx:for="{{hotelData}}">
+        <swiper-item wx:if="{{item.isSinglePic}}">
+          <view class="hotelBackView">
+            <image class="hotelBackImage" src="{{item.backImageURL}}">
+            </image>
+          </view>
+          <view class="infoView" bindtap="bigHotelClicked" data-index="{{item.id}}">
+            <image class="infoImage" src="{{item.imageURL}}">
+            </image>
+            <view class="hotelNameView">
+              <view class="hotelCenterName">
+                <text class="hotelNameFont">{{item.title}}</text>
+                <text class="hotelDistanceFont">{{item.distance}}km</text>
+              </view>
+            </view>
+            <view class="hotelDescriptionView">
+              <text class="descriptionFont">{{item.introduce}}</text>
+            </view>
+            <view class="loactionView" catchtap="locationClicked" data-index="{{index}}" data-lat="{{item.latitude}}" data-lng="{{item.longitude}}" data-name="{{item.title}}" data-location="{{item.location}}">
+              <view class="locationContainer">
+                <image class="locationImage" src="../../../images/location@2x.png">
+                </image>
+                <text class="locationFont">{{item.location}}</text>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item wx:else>
+          <view class="hotelBackView">
+            <image class="hotelBackImage" src="{{item.backImageURL}}">
+            </image>
+          </view>
+          <view class="moreInfoView">
+            <view class="moreInfoContainer">
+              <block wx:for="{{item.contents}}">
+                <view class="smallHotelInfoView" bindtap="smallHotelClicked" data-item-id="{{item.id}}">
+                  <view class="smallHotelImageView">
+                    <image class="smallHotelImage" src="{{item.imageURL}}"></image>
+                    <view class="smallHotelImageTextView">
+                      <text class="smallHotelFont">{{item.title}}</text>
+                    </view>
+                  </view>
+                  <view class="smallHotelLocationView" catchtap="smallLocationClicked" data-lat="{{item.latitude}}" data-lng="{{item.longitude}}" data-name="{{item.title}}" data-location="{{item.location}}">
+                    <view class="smallHotelLocationContainer">
+                      <image class="smallHotelLocationImage" src="../../../images/location@2x.png"></image>
+                      <text class="smallHotelLocationFont">{{item.location}}</text>
+                    </view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!--展馆页面-->
+    <swiper class="exhibitionBaseView" wx:else>
+    <block wx:for="{{exceptionData}}">
+      <swiper-item>
+        <view class="exhibitionBackView">
+          <image class="exhibitionBackImage" src="{{item.backImageURL}}">
+          </image>
+        </view>
+        <view class="exhibitionInfoView" bindtap="bigExhibitionClicked" data-index="{{item.id}}">
+          <image class="exhibitionInfoImage" src="{{item.imageURL}}">
+          </image>
+          <view class="exhibitionNameView">
+            <view class="exhibitionCenterName">
+              <text class="exhibitionNameFont">{{item.title}}</text>
+              <text class="exhibitionDistanceFont">{{item.distance}}km</text>
+            </view>
+          </view>
+          <view class="exhibitionDescriptionView">
+            <text class="exhibitionDescriptionFont">{{item.introduce}}</text>
+          </view>
+          <view class="exhibitionLoactionView" catchtap="locationClicked" data-lat="{{item.latitude}}" data-lng="{{item.longitude}}" data-name="{{item.title}}" data-location="{{item.location}}">
+            <view class="exhibitionLocationContainer">
+              <image class="locationImage" src="../../../images/location@2x.png">
+              </image>
+              <text class="exhibitionLocationFont">{{item.location}}</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      </block>
+    </swiper>
+    <block wx:if="{{currentTapIsHotel}}">
+      <image class="leftArrow" bindtap="leftArrowClicked" src="../../../images/arrow_left@2x.png"></image>
+      <image class="rightArrow" bindtap="rightArrowClicked" src="../../../images/arrow_right@2x.png"></image>
+    </block>
+  </view>
+
+  <!--container end-->
+</view>
+
+<!--info -->
+<view wx:else id="info">
+<loading hidden="{{loadingHidden}}">
+    提交中...
+</loading>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>姓 名:</view>
+      <view class="form-right">
+        <input name="userName" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>联系电话:</view>
+      <view class="form-right">
+        <input name="userPhoneNumber" bindinput="bindKeyInput" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>手机验证:</view>
+      <view class="form-right other-right">
+        <input name="vertifyCode" type="text" class='phone-code' />
+        <view bindtap="getCode" wx:if="{{isGetCodeEnable}}" class="get-code">获取验证码</view>
+        <view wx:else class="get-code-disable">{{timeleft}}秒后重新获取</view>
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>所在区域:</view>
+      <view class="form-right other-right">
+        <input name="province" type="text" class="province" />省
+        <input name="city" type="text" class="area" />市</view>
+    </view>
+
+    <!--分割线开始-->
+    <view style="width:100%;height:15rpx;background:#f1f1f1;"></view>
+
+    <!--分割线结束-->
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left" style="margin-left:5rpx;">客户服务码:</view>
+      <view class="form-right">
+        <input name="serviceCode" type="text" />
+      </view>
+    </view>
+    <view class="" style="border-top:1rpx solid #e8e8e8;width:676rp;margin:auto;">
+      <view class="form-left" style="margin-top:10rpx;width:100%;">
+        <text>*</text>你想了解哪些展位信息(可多选):</view>
+      <view class="form-down">
+        <checkbox-group name="checkBoxGroup" bindchange="checkboxChange" class="check-box">
+          <block wx:for="{{feed}}">
+          <label class="checkbox">
+            <checkbox value="{{item.title}}" checked="{{item.isChecked}}" size="20" />{{item.title}}
+          </label>
+          </block>
+        </checkbox-group>
+      </view>
+      <button formType="submit" class="submit">提交信息</button>
+      <view class="tips">完善资料后可查看更多详细信息</view>
+    </view>
+  </form>
+
+</view>

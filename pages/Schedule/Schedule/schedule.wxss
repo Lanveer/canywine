@@ -1,0 +1,318 @@
+/* pages/Schedule/Schedule/schedule.wxss */
+
+.container {
+  width: 750rpx;
+  height: auto;
+}
+
+.hotTapBarItemView {
+    width: 187rpx;
+    height: 66rpx;
+    background: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hotTapBarContainer {
+  width: 121rpx;
+  height: 66rpx;
+  background: #F1F1F1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hotTabBarItemImage {
+    width: 28rpx;
+    height: 28rpx;
+}
+
+.hotTabBarFont {
+  font-size: 28rpx;
+  color: #E82929;
+}
+
+::scrollbar {
+  width: 0rpx;
+  height: 0rpx;
+  color: transparent;
+}
+
+.scrollView {
+  width: 75%;
+  white-space: nowrap;
+  height: 66rpx;
+  background: #F1F1F1;
+}
+
+/*顶部滑动按钮*/
+.topTapBar {
+  width: 750rpx;
+  height: 66rpx;
+  background: #F1F1F1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: -1rpx;
+  border-bottom: 1rpx solid #E8E8E8;
+  z-index: 2;
+}
+
+.topBarItem {
+  width: 187rpx;
+  height: 66rpx;
+  background: #F1F1F1;
+  display: inline-block;
+  margin-left: 10rpx;
+}
+
+.topBarTitle {
+  font-size: 28rpx;
+  color: #353535;
+  margin: auto;
+  /*text-align: center;*/
+  line-height: 60rpx;
+  margin-left: 17rpx;
+}
+
+.topBarTitleSelected {
+  font-size: 28rpx;
+  color: #E82929;
+}
+
+.topBarItemLine {
+  background: #F1F1F1;
+  height: 5rpx;
+  width: 132rpx;
+}
+
+.topBarItemLineSelected {
+  background: #E82929;
+  height: 5rpx;
+  width: 132rpx;
+}
+
+/*日程列表*/
+
+.listView {
+  width: 750rpx;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 66rpx;
+  z-index: 1;
+}
+
+.listScrollView {
+  width: 750rpx;
+  height: 1100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 66rpx;
+  z-index: 1;
+}
+
+.cellView {
+  width: 670rpx;
+  height: 562rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.13);
+  margin-top: 30rpx;
+}
+
+.cellImageView {
+  width: 670rpx;
+  height: 410rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  position: relative;
+}
+
+.cellImage {
+  width: 670rpx;
+  height: 410rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.imageTitleView {
+  width: 670rpx;
+  height: 70rpx;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0rpx;
+  bottom: 0rpx;
+}
+
+.imageTitleFont {
+  font-size: 34rpx;
+  color: white;
+  line-height: 70rpx;
+  margin-left: 28rpx;
+}
+
+.titleView {
+  width: 670rpx;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.titleFont {
+  font-size: 28rpx;
+  color: #353535;
+  margin-left: 28rpx;
+  line-height: 50rpx;
+}
+
+.guestFont {
+  font-size: 20rpx;
+  color: #353535;
+  margin-left: 28rpx;
+}
+
+.timeView {
+  width: 670rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timeImage {
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 28rpx;
+}
+
+.timeFont {
+  font-size: 22rpx;
+  color: #353535;
+  line-height: 50rpx;
+  margin-left: 10rpx;
+}
+
+.locationView {
+  width: 670rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.locationImage {
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 28rpx;
+}
+
+.locationFont {
+  font-size: 20rpx;
+  color: #226298;
+  line-height: 50rpx;
+  margin-left: 10rpx;
+}
+
+/*info */
+
+/*page{
+    background: #f1f1f1;
+}*/
+#info{
+    width: 100%;height: 1162rpx;
+    background: #fff;
+    position: absolute;top: 0rpx;
+    /*z-index: 995;*/
+}
+
+.info-header{
+    width: 100%;height: 66rpx;background:#e23738;
+    text-align: center;line-height: 66rpx;
+}
+
+.info-header text{
+    font-size: 30rpx;color: #fff;
+}
+
+.form-item{
+    width:710rpx;height:auto;
+    margin: 0 auto 40rpx;
+   overflow: hidden; 
+    display: flex;flex-direction: row;
+    align-items: center;vertical-align: middle;
+    justify-content: space-between;
+
+}
+.form-left{font-size: 28rpx;color: #282828;margin-left: 20rpx;}
+.form-left text{color:#e23738;}
+.form-right{
+    width: 530rpx;float: right;margin-right:22rpx;
+}
+.form-right input{
+    width: 100%;height: 68rpx;
+    border: 1rpx solid #dedede;
+}
+
+
+.other-right{
+    display: flex;flex-direction: row;align-items: center;vertical-align: middle;justify-content: space-between;
+    font-size: 28rpx;color: #282828;
+}
+.phone-code{
+    width: 300rpx!important;
+}
+.get-code{
+    width: 178rpx;font-size: 22rpx;color: #fff;height : 68rpx;background: #e23738;
+    text-align: center;line-height: 68rpx;
+}
+
+.get-code-disable {
+  width: 178rpx;
+  font-size: 22rpx;
+  color: #fff;
+  height: 68rpx;
+  background: darkgray;
+  text-align: center;
+  line-height: 68rpx;
+}
+
+.province{
+    width: 182rpx!important;height: 68rpx;
+}
+
+.area{
+    width: 182rpx!important;height: 68rpx;
+}
+
+.form-down{
+    width:676rpx;height:250rpx;
+    background:#fff; 
+    margin: 20rpx auto 0; 
+}
+/*.check-box{*/
+    /*display: flex;flex-direction: row;justify-content: space-around;align-items: center;vertical-align: middle;*/
+/*}*/
+.checkbox{
+    width: 33%;height: auto;
+    margin: 10rpx 0 10rpx 0;
+    text-align: left;font-size:28rpx; 
+    overflow: hidden;display: inline-block;
+}
+
+.submit{
+    width:676rpx;height: 74rpx;
+    background: #e23738;
+    color: #fff;border: none;outline: none;
+    font-size: 28rpx;border-radius: 0;
+    margin-top: 20rpx;
+}
+
+.tips{
+    font-size: 22rpx;color:#666565;
+    margin-top: 10rpx;text-align: center;
+}

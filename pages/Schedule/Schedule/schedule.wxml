@@ -1,0 +1,124 @@
+
+<!--pages/Schedule/Schedule/schedule.wxml-->
+<view wx:if="{{!needshowInfo}}" class="container">
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+
+  <!--顶部选项栏-->
+  <view class="topTapBar">
+    <view class="hotTapBarItemView" bindtap="hotTopBarItemClick">
+      <view class="hotTapBarContainer">
+        <image class="hotTabBarItemImage" src="../../../images/hotSchedule@2x.png"></image>
+        <text class="hotTabBarFont">热门</text>
+      </view>
+    </view>
+    <scroll-view scroll-x="true" class="scrollView" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollLeft}}">
+      <block wx:for="{{topTabBarData}}">
+        <view id="{{item.pageId}}" class="topBarItem" bindtap="topBarItemClicked" data-index="{{index}}" data-itemId="{{item.pageId}}">
+          <text class="topBarTitle {{item.didSelected ? 'topBarTitleSelected' : ''}}">{{item.title}}</text>
+          <view class="topBarItemLine {{item.didSelected ? 'topBarItemLineSelected' : ''}}"></view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!--日程列表-->
+
+  <!--<view class="listView">-->
+  <scroll-view class="listScrollView" scroll-y="true" bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper">
+    <block wx:for="{{scheduleData}}">
+      <view class="cellView" bindtap="cellItemClicked" data-item-id="{{item.itemId}}">
+        <view class="cellImageView">
+          <image class="cellImage" src="{{item.imageURL}}"></image>
+          <view class="imageTitleView">
+            <text class="imageTitleFont">{{item.imageTitle}}</text>
+          </view>
+          <view class="titleView">
+            <text class="titleFont">{{item.title}}</text>
+            <text class="guestFont">{{item.guest}}</text>
+          </view>
+          <view class="timeView">
+            <image class="timeImage" src="../../../images/date@2x.png"></image>
+            <text class="timeFont">{{item.time}}</text>
+          </view>
+          <view class="locationView" catchtap="locationClicked" data-lat="{{item.latitude}}" data-lng="{{item.longitude}}" data-name="{{item.title}}" data-location="{{item.location}}">
+            <image class="locationImage" src="../../../images/location@2x.png"></image>
+            <text class="locationFont">{{item.location}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!--</view>-->
+
+  <!--container end-->
+</view>
+
+<!--info -->
+
+<!--info -->
+<view wx:else id="info">
+  <loading hidden="{{loadingHidden}}">
+    提交中...
+  </loading>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>姓 名:</view>
+      <view class="form-right">
+        <input name="userName" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>联系电话:</view>
+      <view class="form-right">
+        <input name="userPhoneNumber" bindinput="bindKeyInput" type="text" />
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>手机验证:</view>
+      <view class="form-right other-right">
+        <input name="vertifyCode" type="text" class='phone-code' />
+        <view bindtap="getCode" wx:if="{{isGetCodeEnable}}" class="get-code">获取验证码</view>
+        <view wx:else class="get-code-disable">{{timeleft}}秒后重新获取</view>
+      </view>
+    </view>
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left">
+        <text>*</text>所在区域:</view>
+      <view class="form-right other-right">
+        <input name="province" type="text" class="province" />省
+        <input name="city" type="text" class="area" />市</view>
+    </view>
+
+    <!--分割线开始-->
+    <view style="width:100%;height:15rpx;background:#f1f1f1;"></view>
+
+    <!--分割线结束-->
+    <view class="form-item" style="margin-top:20rpx;">
+      <view class="form-left" style="margin-left:5rpx;">客户服务码:</view>
+      <view class="form-right">
+        <input name="serviceCode" type="text" />
+      </view>
+    </view>
+    <view class="" style="border-top:1rpx solid #e8e8e8;width:676rp;margin:auto;">
+      <view class="form-left" style="margin-top:10rpx;width:100%;">
+        <text>*</text>你想了解哪些展位信息(可多选):</view>
+      <view class="form-down">
+        <checkbox-group name="checkBoxGroup" bindchange="checkboxChange" class="check-box">
+          <block wx:for="{{feed}}">
+            <label class="checkbox">
+              <checkbox value="{{item.title}}" checked="{{item.isChecked}}" size="20" />{{item.title}}
+            </label>
+          </block>
+        </checkbox-group>
+      </view>
+      <button formType="submit" class="submit">提交信息</button>
+      <view class="tips">完善资料后可查看更多详细信息</view>
+    </view>
+  </form>
+</view>

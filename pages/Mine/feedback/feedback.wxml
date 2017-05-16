@@ -1,0 +1,51 @@
+<form  bindsubmit="formSubmit">
+  <!--<block wx:for="{{feed}}">
+    <view class="item-wrapper">
+          <view class="list" bindtap="check" data-item="{{index}}">
+        <text>{{item.title}}</text>
+        <image src="{{item.src1}}" wx:if="{{check}}"></image>
+        <image src="{{item.src2}}" wx:if="{{checked}}"></image>
+      </view>
+    </view>
+  </block>-->
+
+
+  <!--test-->
+      <checkbox-group class="item-wrapper" bindchange="checkboxChange">
+        <label class="list" wx:for="{{feed}}" bindtap="change_status" data-index="{{index}}">           
+        <text>{{item.title}}</text><checkbox value="{{item.title}}" checked="{{item.isChecked}}" style="display:none;"/>
+        <image bindcatch="change_status" data-index="{{index}}" src="{{item.src2}}" wx:if="{{item.isChecked}}"></image>
+        <image bindcatch="change_status" data-index="{{index}}" src="{{item.src1}}" wx:else></image>
+      </label>
+    </checkbox-group>
+<!--test-->
+
+  <!--输入框开始-->
+    <view class="item-wrapper">
+  <view class="list" bindtap="check_others">
+    <text>其他</text>
+    <image src="../../../images/feed-choosed.png" wx:if="{{isOtherCheck}}"></image>
+    <image src="../../../images/feed-unchoosed.png" wx:else></image>
+  </view>
+  <textarea class="input" placeholder="请输入内容" placeholder-class="input-txt" auto-focus="true" bindblur="bindTextAreaBlur"/>
+</view>
+  <!--输入框结束-->
+
+  <!--分割线开始-->
+  <view style="width:100%;height:15rpx;background:#f1f1f1;"></view>
+
+  <!--分割线结束-->
+  <view class="item-wrapper">
+    <view class="item">
+      <text>姓名</text>
+      <input placeholder="请输入您的姓名" placeholder-style="font-size:30rpx;color:#b4b4b4;" bindinput="bindNameInput" />
+    </view>
+  </view>
+  <view class="item-wrapper">
+    <view class="item" style="border-bottom:none;">
+      <text>电话</text>
+      <input placeholder="请输入您的电话，我们可能联系您" placeholder-style="font-size:30rpx;color:#b4b4b4;" bindinput="bindPhoneNumberInput"/>
+    </view>
+  </view>
+  <button class="submit" form-type="submit">提交</button>
+</form>

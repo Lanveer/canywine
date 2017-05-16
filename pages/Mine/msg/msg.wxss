@@ -1,0 +1,10 @@
+/* pages/Mine/msg/msg.wxss */
+
+.list{
+    width: 710rpx;height: 86rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    margin: auto;
+}
+.list text{
+    font-size: 30rpx;color: #282828;line-height: 85rpx;
+}
