@@ -1,0 +1,9 @@
+/**app.wxss**/
+page {
+  font-family: microsoft yahei;
+}
+
+text{
+  font-family: microsoft yahei;
+  /*font-family: sans-serif;*/
+}

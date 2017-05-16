@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/Exhibition/Exhibition/exhibition",
+    "pages/Schedule/Schedule/schedule",
+    "pages/Schedule/DetailPage/detailPage",
+    "pages/News/News/news",
+    "pages/News/Details/singleImageDetail/detail",
+    "pages/News/Details/mutipleImagesDetail/detail",
+    "pages/News/Details/bigImageDetail/detail",
+    "pages/News/Details/videoDetail/detail",
+    "pages/Mine/Mine/mine",
+    "pages/template/template",
+    "pages/show/show",
+    "pages/showHouse/showHouse",
+    "pages/list/list",
+    "pages/Mine/feedback/feedback",
+    "pages/Mine/info/info",
+    "pages/Mine/msg/msg",
+    "pages/search/search",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EC3E3E",
+    "navigationBarTitleText": "酒商",
+    "navigationBarTextStyle": "red"
+  },
+  "tabBar": {
+    "color": "#353535",
+    "selectedColor": "#E82929",
+    "borderStyle": "white",
+    "backgroundColor": "#F9F9F9",
+    "list": [
+      {
+        "pagePath": "pages/Exhibition/Exhibition/exhibition",
+        "iconPath": "images/tab_city.png",
+        "selectedIconPath": "images/tab_city_s.png",
+        "text": "展会展位"
+      },
+      {
+        "pagePath": "pages/Schedule/Schedule/schedule",
+        "iconPath": "images/tab_calendar48.png",
+        "selectedIconPath": "images/tab_calendar_s48.png",
+        "text": "会议日程"
+      },
+      {
+        "pagePath": "pages/News/News/news",
+        "iconPath": "images/tab_news48.png",
+        "selectedIconPath": "images/tab_news_s48.png",
+        "text": "会展资讯"
+      },
+      {
+        "pagePath": "pages/Mine/Mine/mine",
+        "iconPath": "images/tab_user48.png",
+        "selectedIconPath": "images/tab_user_s48.png",
+        "text": "我的"
+      }
+    ]
+  },
+  
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}
